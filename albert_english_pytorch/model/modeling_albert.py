@@ -47,7 +47,6 @@ def load_tf_weights_in_albert(model, config, tf_checkpoint_path):
         raise
     tf_path = os.path.abspath(tf_checkpoint_path)
     logger.info("Converting TensorFlow checkpoint from {}".format(tf_path))
-    tf_path = tf_path + "/variables/variables"
     # Load weights from TF model
     init_vars = tf.train.list_variables(tf_path)
     names = []
@@ -482,7 +481,7 @@ BERT_START_DOCSTRING = r"""    The BERT model was proposed in
     .. _`torch.nn.Module`:
         https://pytorch.org/docs/stable/nn.html#module
     Parameters:
-        config (:class:`~transformers.BertConfig`): Model configuration class with all the parameters of the model. 
+        config (:class:`~transformers.BertConfig`): Model configuration class with all the parameters of the model.
             Initializing with a config file does not load the weights associated with the model, only the configuration.
             Check out the :meth:`~transformers.PreTrainedModel.from_pretrained` method to load the model weights.
 """
